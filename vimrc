@@ -19,6 +19,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'ctrlpvim/ctrlp.vim' | Plug 'itchyny/lightline.vim' | Plug 'tomtom/tcomment_vim' | Plug 'nathanaelkane/vim-indent-guides'
-Plug 'dhruvasagar/vim-table-mode' | Plug 'Valloric/YouCompleteMe' | Plug 'sjl/badwolf'
+Plug 'dhruvasagar/vim-table-mode' | Plug 'sjl/badwolf'
 
 call plug#end()
