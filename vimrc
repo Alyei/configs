@@ -1,6 +1,6 @@
 " Show line numbers
 set number relativenumber
-set
+
 " Maximum width of tab character
 set tabstop=4
 
