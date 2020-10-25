@@ -1,11 +1,18 @@
 " Show line numbers
-set number
-
+set number relativenumber
+set
 " Maximum width of tab character
 set tabstop=4
 
 " No spaces
 set softtabstop=0 noexpandtab
+
+" Global Register Clipboard remap
+" vnoremap <C-c> "*y :let @+=@*<CR>  #Copies to Primary Selection and then
+" sets Clipboard to that. More robust according to Luke Smith.
+" Requires vim compiled with clipboard support or gvim (vim-gtk3)
+vnoremap <C-c> "+y
+map <C-v> "+P
 
 " Size of indent
 set shiftwidth=4
