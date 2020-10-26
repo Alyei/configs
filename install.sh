@@ -13,7 +13,7 @@ sudo dpkg-reconfigure kali-grant-root
 chsh -s $(which fish)
 
 # Add go/bin to user path
-set -U fish_user_paths ~/go/bin $fish_user_paths
+fish -c "set -U fish_user_paths ~/go/bin $fish_user_paths"
 
 # Clone config repo
 git clone https://github.com/Alyei/configs.git 
