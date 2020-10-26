@@ -9,24 +9,38 @@ sudo apt install fish vim-gtk3 fzf fd-find ripgrep exa bat golang kali-grant-roo
 # Grant passwordless sudo
 sudo dpkg-reconfigure kali-grant-root
 
-# Set fish as login shell
-chsh -s $(which fish)
+# Set fish as default shell
+echo "[+] Setting fish as default shell"
+sudo chsh -s $(which fish) $USER
 
 # Add go/bin to user path
+echo "[+] Adding ~/go/bin to PATH"
 fish -c "set -U fish_user_paths ~/go/bin $fish_user_paths"
 
-# Clone config repo
-git clone https://github.com/Alyei/configs.git 
-
 # Move configs to proper location
-cp configs/tmux.conf ~/.tmux.conf
-cp configs/vimrc ~/.vimrc
-cp configs/config.fish ~/.config/fish
+echo "[+] Moving tmux config"
+cp ./tmux.conf ~/.tmux.conf
+echo "[+] Moving vimrc"
+cp ./vimrc ~/.vimrc
+echo "[+] Moving fish config"
+cp ./config.fish ~/.config/fish/
+echo "[+] Moving fisher config"
+cp ./fishfile ~/.config/fish/
+
+# Installing fisher and plugins
+echo "[+] Installing fisher"
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+echo "[+] Installing fish plugins"
+fish -c "fisher"
+
+# Setting alias for z to j
+echo "[+] Setting z alias to j"
+fish -c 'set -U Z_CMD "j"'
 
 # Install vim plugins
+echo "[+] Installing vim plugins"
 vim +PluginInstall +qall
 
-# Install omf, move configs to folder and install plugins
-# Doing this last because it starts a new fish shell
-cp -r configs/omf/ ~/.config
-fish -c "curl -L https://get.oh-my.fish | fish"
+# Running tools.sh
+echo "[+] Installing tools"
+sh tools.sh

@@ -1,5 +1,7 @@
-tmux
-if test -f /home/kali/.autojump/share/autojump/autojump.fish; . /home/kali/.autojump/share/autojump/autojump.fish; end
+if status is-interactive
+and not set -q TMUX
+    exec tmux
+end
 
 alias ls="exa"
 alias cat="batcat"
