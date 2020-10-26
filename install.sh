@@ -1,9 +1,12 @@
 #!/bin/sh
 
+# Update repository
+sudo apt update
+
 # Install packages
 sudo apt install fish vim-gtk3 fzf fd-find ripgrep exa bat golang kali-grant-root -y
 
-# Grand passwordless sudo
+# Grant passwordless sudo
 sudo dpkg-reconfigure kali-grant-root
 
 # Set fish as login shell
