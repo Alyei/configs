@@ -1,7 +1,10 @@
 #!/bin/sh
 
 # Install packages
-sudo apt install fish vim-gtk3 fzf fd-find ripgrep exa bat golang -y
+sudo apt install fish vim-gtk3 fzf fd-find ripgrep exa bat golang kali-grant-root -y
+
+# Grand passwordless sudo
+sudo dpkg-reconfigure kali-grant-root
 
 # Set fish as login shell
 chsh -s $(which fish)
