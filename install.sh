@@ -17,6 +17,10 @@ sudo chsh -s $(which fish) $USER
 echo "[+] Adding ~/go/bin to PATH"
 fish -c "set -U fish_user_paths ~/go/bin $fish_user_paths"
 
+# Add .local/bin to user path (pip3 installs)
+echo "[+] Adding ~/.local/bin to PATH"
+fish -c "set -U fish_user_paths ~/.local/bin $fish_user_paths"
+
 # Move configs to proper location
 echo "[+] Moving tmux config"
 cp ./tmux.conf ~/.tmux.conf
